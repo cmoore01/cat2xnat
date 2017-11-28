@@ -49,6 +49,7 @@ class ImageConverter {
             setHeader(attributes, Tag.SeriesInstanceUID, UIDUtils.createUID())
             setHeader(attributes, Tag.SOPInstanceUID, UIDUtils.createUID())
             setHeader(attributes, Tag.SeriesNumber, String.valueOf(image.index))
+            setHeader(attributes, Tag.IdentifyingComments, image.source)
             final Jpg2Dcm jpg2Dcm = new Jpg2Dcm()
             jpg2Dcm.setMetadata(attributes)
             jpg2Dcm.convert(image.file, jpegDicomFile)
